@@ -1,16 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <div id="app">
+    <header class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <span class="navbar-brand">Pogoda</span>
+      </div>
+    </header>
+
+    <div class="container mt-4">
+      <highcharts></highcharts>
+    </div>
+    
+   </div>
+   
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import highChart from "./components/highChart.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    highcharts:highChart
+ },
+ 
 }
 </script>
 
@@ -21,6 +33,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+
+}
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
 }
 </style>
