@@ -4,7 +4,9 @@ import Highcharts from "highcharts";
 import Exporting from "highcharts/modules/exporting";
 import highchartsExportData  from "highcharts/modules/export-data";
 import HCMore from "highcharts/highcharts-more";
+import HighchartsRangeSelector from 'highcharts/modules/stock'
 
+HighchartsRangeSelector(Highcharts)
 HCMore(Highcharts);
 
 import "bootstrap/dist/css/bootstrap.min.css"

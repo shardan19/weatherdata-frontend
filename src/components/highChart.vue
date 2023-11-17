@@ -34,8 +34,30 @@ export default {
   data() {
     return {
       chartOptions: {
+        rangeSelector: {
+            buttons:[{
+                type:'minute',
+                count:15,
+                text:'15m'
+            },{
+                type:'hour',
+                count:1,
+                text:'1h'
+            },{
+                type:'hour',
+                count:4,
+                text:'4h'
+            },{
+                type:'all',
+                text:'All'
+            }],
+            enabled:true,
+            verticalAlign: 'top',
+            x: 0,
+            y: 0
+        },
         time:{            
-            timezoneOffset: -60
+            timezoneOffset: -520
         },
         chart:{type:'columnrange'},
         title:{text: 'Temperatura min/max'},
@@ -61,6 +83,10 @@ export default {
         plotOptions: {
             columnrange: {
             borderRadius: '50%',
+
+            pointWidth:10,
+            groupPadding:0.2,
+            pointPadding:0.2,
             dataLabels: {
                 enabled: true,
                 format: '{y}°C'
@@ -72,7 +98,7 @@ export default {
       },
       chartOptions2: {
         time:{            
-            timezoneOffset: -60
+            timezoneOffset: -520
         },
         chart:{type:'line'},
         title:{text: 'Wiatr'},
@@ -104,7 +130,7 @@ export default {
       },
       chartOptions3: {
         time:{            
-            timezoneOffset: -60
+            timezoneOffset: -520
         },
         chart:{type:'column'},
         title:{text: 'Wilgotność (%)'},
@@ -122,7 +148,8 @@ export default {
             }
         },
         plotOptions: {
-            line: {
+            column: {
+                pointWidth:10,
             dataLabels: {
                 enabled: true,
                 format: '{y} %'
@@ -136,7 +163,7 @@ export default {
       },
       chartOptions4: {
         time:{            
-            timezoneOffset: -60
+            timezoneOffset: -520
         },
         chart:{type:'line'},
         title:{text: 'Ciśnienie (hPa)'},
@@ -154,7 +181,10 @@ export default {
             }
         },
         plotOptions: {
+            
             line: {
+            turboThreshold: 0,
+            marker:{enabled:true},
             dataLabels: {
                 enabled: true,
                 format: '{y} hPa'
@@ -166,8 +196,30 @@ export default {
         valueSuffix: ' hPa'},
         series: [{name:"Ciśnienie",data: []}]
       }, chartOptions01: {
+        rangeSelector: {
+            buttons:[{
+                type:'minute',
+                count:15,
+                text:'15m'
+            },{
+                type:'hour',
+                count:1,
+                text:'1h'
+            },{
+                type:'hour',
+                count:4,
+                text:'4h'
+            },{
+                type:'all',
+                text:'All'
+            }],
+            enabled:true,
+            verticalAlign: 'top',
+            x: 0,
+            y: 0
+        },
         time:{            
-            timezoneOffset: -60
+            timezoneOffset: -520
         },
         chart:{type:'line'},
         title:{text: 'Temperatura'},
@@ -227,9 +279,10 @@ export default {
                 return {x:parseInt(item.dt)*1000,
                     y:Math.round(item.feelsLikeTemp * 10) / 10,
                     marker:{symbol:'url(https://openweathermap.org/img/wn/'+item.icon+'@2x.png)',
-                            fillColor:'red',
-                            width:50,
-                            height:50}
+                            radius:10,
+                            width:40,
+                            height:40,
+                        enabled:true}
                             
                 }
             });
